@@ -1,0 +1,31 @@
+/* .footer {
+    display: block;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+ } */
+
+ .footer {
+    height: 50px;
+    /* background-color: red; */
+    color: rgb(158, 158, 158);
+    text-align: center;
+    /* background-image: url('https://i.pinimg.com/originals/c1/ce/92/c1ce928792fea208ee1c1345ad9fa5aa.png');
+    background-repeat: no-repeat;
+    background-position: 60% 20%;  */
+}
+
+/* @media screen 
+  and (max-height: 1200px)  { 
+      .up_btn {
+          display: none;
+      }
+} */
+
+.up_btn {
+    width: 25px;
+}

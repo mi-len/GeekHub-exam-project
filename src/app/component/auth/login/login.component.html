@@ -1,0 +1,40 @@
+<!-- {{model | json}} -->
+<div class="container">
+  <h1>Login Form</h1>
+  <form #loginForm='ngForm' (ngSubmit)='login()'>
+    <div class="form-group text-lg-left">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" 
+      required
+      name='username'
+      [(ngModel)]='model.username'
+      #username='ngModel'>
+
+      <div [hidden]='username.valid || username.pristine' class="alert alert-danger">
+        Username is required!
+      </div>
+
+    </div>
+    <div class="form-group text-lg-left">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" 
+      required
+      name="password"
+      [(ngModel)]='model.password'
+      #password='ngModel'>
+
+      <div [hidden]='username.valid || username.pristine' class="alert alert-danger">
+        Password is required!
+      </div>
+
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]='loginForm.form.invalid'>Login</button>
+  </form>
+  <div *ngIf="liginFailed" class='alert alert-danger'>
+    {{errMessage}}
+  </div>
+  <!-- <img src="https://i.pinimg.com/originals/10/f8/98/10f898a5d2c0804bf074042319e0c63b.png" alt="img" class="log_img_bot"> -->
+  <img src="../../../../assets/images/loginteh.png" alt="img" class="log_img_bot">
+</div>
+
+

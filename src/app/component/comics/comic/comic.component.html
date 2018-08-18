@@ -1,0 +1,12 @@
+
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{comic.img_url}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{comic.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted" *ngIf="price">price: {{comic.price}} coins</h6>
+        <h6 class="card-subtitle mb-2 text-muted" *ngIf="!price">price: free</h6>
+        <p class="card-text" class="mini_descr">{{comic.description}}</p>
+        <a routerLink="/comics/details/{{id}}" class="card-link">Details</a>
+      </div>
+    </div>
+  

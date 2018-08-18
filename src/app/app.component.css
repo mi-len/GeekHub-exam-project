@@ -1,0 +1,4 @@
+.outher_container {
+    min-height: calc(100vh - 90px);
+    /* background-color: aquamarine; */
+}

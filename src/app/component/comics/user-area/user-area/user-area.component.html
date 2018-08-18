@@ -1,0 +1,25 @@
+
+<h4 id="top_user_space">All your stuff</h4>
+<div class="container">
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Publisher</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let comic of comics; let i= index">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{comic.title}}</td>
+          <td>{{comic.publisher}}</td>
+          <td><a  routerLink="/comics/details/{{comic._id}}" class="btn btn-info">Details</a>
+          <a routerLink="/comics/edit/{{comic._id}}" class="btn btn-warning">Edit</a>
+          <a (click)='deleteArticle(comic._id)' class="btn btn-danger">Delete</a></td>
+        </tr>
+ 
+      </tbody>
+    </table>
+  </div>

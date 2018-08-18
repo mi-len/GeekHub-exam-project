@@ -1,0 +1,32 @@
+.container {
+    margin-top: 35px;
+}
+
+.add_img_thumbnail {
+    width: 78px;
+}
+
+page_thumb_container>li {
+    display: inline;
+}
+
+.inline {
+    /* display: inline; */
+    margin-right: 0px;
+    margin-top: 15px;
+}
+
+.ul_pages {
+    list-style-type: none;
+}
+
+.del_btn {
+    position: relative;
+    left: -23px;
+    bottom: 49px;
+    margin: 0px;
+}
+
+.add_add_page_btn {
+    margin-bottom: 18px;
+}

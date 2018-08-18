@@ -1,0 +1,16 @@
+
+.jumbotron {
+    background-image: url('https://i.pinimg.com/originals/ce/46/f5/ce46f5373609591315843bdc1bb6a8a9.png');
+    background-repeat: no-repeat;
+    background-position: 70% 20%; 
+}
+
+.col-md-4 img {
+    width: 100%;
+}
+
+.just {
+    text-align: justify;
+    text-justify: inter-word;
+    margin-top: 10px;
+}

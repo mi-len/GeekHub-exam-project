@@ -1,0 +1,27 @@
+.my-pagination /deep/ .ngx-pagination span {
+    /* background: rgb(15, 142, 201); */
+    color: white
+    
+}
+
+.my-pagination /deep/ .ngx-pagination a {
+  color:blueviolet;
+}
+
+a {
+    margin-right: 5px;
+}
+
+table {
+    text-align: left;
+}
+
+span {
+  color: aqua;
+}
+
+#top_admin_space {
+  margin-top: 45px;
+  /* padding-top: 50px; */
+  margin-bottom: 20px;
+}

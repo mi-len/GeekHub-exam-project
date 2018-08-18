@@ -1,0 +1,30 @@
+.container {
+    margin-top: 35px;
+}
+
+.description_p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+button {
+    margin-right: 5px;
+}
+
+.page_img_thumbnail {
+    width: 78px;
+}
+
+page_thumb_container>li {
+    display: inline;
+}
+
+.inline {
+    /* display: inline; */
+    margin-right: 9px;
+    margin-top: 15px;
+}
+
+.ul_pages {
+    list-style-type: none;
+}

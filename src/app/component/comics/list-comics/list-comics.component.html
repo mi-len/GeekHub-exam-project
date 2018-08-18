@@ -1,0 +1,26 @@
+<!-- Search form -->
+<div class="container">
+    <form #form="ngForm" (submit)="getSearch(form.value)">
+        <input type="text" class="form-control search_in" name="search" placeholder="Search" ngModel>
+    </form>  
+
+</div>    
+<!-- Search result -->
+<div *ngIf="searchResult" class="row" >
+    <div class="col-sm" *ngFor="let comic of searchResult">
+      <app-search-result [comic]="comic" [id]='comic._id'></app-search-result>
+    </div>
+</div>
+<div *ngIf="noMatch" class='nomatch'>No match</div>
+<hr/>
+<!-- List -->
+<a name="top"></a>
+<div *ngIf="comics" class="row" >
+  <div class="col-sm" *ngFor="let comic of comics">
+    <app-comic [comic]="comic" [id]='comic._id'></app-comic>
+  </div>
+</div>
+
+
+
+

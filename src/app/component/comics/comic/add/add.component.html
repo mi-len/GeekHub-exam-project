@@ -1,0 +1,99 @@
+<!-- {{model | json}} -->
+<div class="container">
+    <h1>Add item:</h1>
+    <form #addingForm="ngForm" (ngSubmit)='addComics()' class='py-4 text-center text-lg-left'>
+      <div class="row">
+        <div class="col-lg-5 col-xl-5 pb-3">
+            <div class="view overlay rounded z-depth-2">
+              <img src="{{model.img_url ? model.img_url : '../../../../../assets/images/img_placeholder.png'}}" alt="cover image" class="img-fluid" >
+            </div>
+        </div>
+        <div class="col-lg-7 col-xl-7">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" 
+            required
+            name='title'
+            [(ngModel)]='model.title'
+            #title='ngModel'>
+  
+            <div [hidden]='title.valid || title.pristine' class="alert alert-danger">
+              Title cannot be empty!
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="img_url">Cover url</label>
+            <input type="text" class="form-control" id="img_url" 
+            required
+            name='img_url'
+            [(ngModel)]='model.img_url'
+            #img_url='ngModel'>
+            
+            <div [hidden]='img_url.valid || img_url.pristine' class="alert alert-danger">
+              Image url cannot be empty!
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" id="price" 
+            name='price'
+            [(ngModel)]='model.price'
+            #price='ngModel'>
+          </div>
+  
+          <div class="form-group">
+            <label for="contact">Contact</label>
+            <input type="text" class="form-control" id="contact" 
+            required
+            name='contact'
+            [(ngModel)]='model.contact'
+            #contact='ngModel'>
+  
+            <div [hidden]='contact.valid || contact.pristine' class="alert alert-danger">
+              Your contact cannot be empty!
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" 
+            required
+            name='description'
+            [(ngModel)]='model.description'
+            #description='ngModel'>
+  
+            <div [hidden]='description.valid || description.pristine' class="alert alert-danger">
+              Please leave short description.
+            </div>
+          </div>
+
+          <div *ngIf="model.pages">
+            <ul  class="row"  style="list-style-type:none">
+              <li *ngFor="let p of model.pages; let i = index" class="inline">
+                <img src="{{p}}" alt="additional page image" class="add_img_thumbnail" [attr.data-id]="i" >
+                <button type="button" (click)='delThumbnail($event)' [attr.data-id]="i" class="btn btn-danger btn-sm del_btn">X</button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="form-group">
+            <label for="page">Additional images</label>
+            <input type="text" class="form-control add_add_page_btn" id="page" 
+            name='page'
+            [(ngModel)]='model.page'
+            #page='ngModel'>
+            <button type='button' (click)='pushPage(page.value)' class="btn btn-info">Add scan</button>
+          </div>
+
+        <button type="submit" class="btn btn-success btn-block" [disabled]='addingForm.form.invalid'>Publish item</button>
+
+      </div>
+    </div>
+  </form>
+  <div *ngIf="addingFailed" class="alert alert-danger">
+    {{errMessage}}
+  </div>
+
+</div>

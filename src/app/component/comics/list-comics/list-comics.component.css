@@ -1,0 +1,18 @@
+.search_in {
+background-color:black;
+color: silver;
+border: 1px solid grey;
+margin-top: 25px;
+}
+
+form {
+    width: 50%;
+    margin: auto;
+}
+
+/* .nomatch {
+    margin-top: 15px;
+} */
+
+
+
