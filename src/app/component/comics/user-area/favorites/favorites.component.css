@@ -1,0 +1,17 @@
+a {
+    margin-right: 5px;
+}
+
+table {
+    text-align: left;
+}
+
+#top_user_space {
+    margin-top: 30px;
+    /* padding-top: 50px; */
+    margin-bottom: 20px;
+ }
+
+.nav_li {
+    margin-right: 20px;
+}
