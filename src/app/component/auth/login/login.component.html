@@ -1,5 +1,5 @@
 <!-- {{model | json}} -->
-<div class="container">
+<div @form class="container">
   <h1>Login Form</h1>
   <form #loginForm='ngForm' (ngSubmit)='login()'>
     <div class="form-group text-lg-left">
@@ -30,11 +30,8 @@
     </div>
     <button type="submit" class="btn btn-success" [disabled]='loginForm.form.invalid'>Login</button>
   </form>
-  <div *ngIf="liginFailed" class='alert alert-danger'>
-    {{errMessage}}
-  </div>
   <!-- <img src="https://i.pinimg.com/originals/10/f8/98/10f898a5d2c0804bf074042319e0c63b.png" alt="img" class="log_img_bot"> -->
-  <img src="../../../../assets/images/loginteh.png" alt="img" class="log_img_bot">
+  <img src="http://code.ellefu.eu/wp-content/uploads/2018/08/loginteh.png" alt="img" class="log_img_bot">
 </div>
 
 

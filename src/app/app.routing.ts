@@ -8,21 +8,19 @@ import { PageNotFoundComponent } from "./navigation/page-not-found/page-not-foun
 import { AuthGuard } from "./navigation/guards/auth.guard";
 import { UserAreaComponent } from "./component/comics/user-area/user-area/user-area.component";
 import { AdminAreaComponent } from "./component/comics/user-area/admin-area/admin-area.component";
-import { ComicsRoutingModule } from "./component/comics/comics-routing.module";
+// import { ComicsRoutingModule } from "./component/comics/comics-routing.module";
 import { LandingComponent } from "./component/landing/landing.component";
 import { ComicsModule } from "./component/comics/comics.module";
-import { Add02Component } from "./component/comics/comic/add02/add02.component";//-------------------del
 
 const routes : Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
-    { path: 'home', component: HomeComponent, canActivate: [ AuthGuard ]  }, 
+    { path: 'home', component: HomeComponent, canActivate: [ AuthGuard ] }, 
     { path: 'landing', component: LandingComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'comics', loadChildren: () => ComicsModule, canActivate: [ AuthGuard ] },
-    { path: 'my', component: UserAreaComponent, canActivate: [ AuthGuard ]   },
-    { path: 'admin', component: AdminAreaComponent, canActivate: [ AuthGuard ]   },
-    { path: 'add02', component: Add02Component},//------------------------------------del
+    { path: 'my', component: UserAreaComponent, canActivate: [ AuthGuard ] },
+    { path: 'admin', component: AdminAreaComponent, canActivate: [ AuthGuard ]  },
     { path: '**', component: PageNotFoundComponent }
 ]
 

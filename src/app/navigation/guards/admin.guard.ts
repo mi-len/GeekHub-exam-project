@@ -23,7 +23,6 @@ export class AdminGuard implements CanActivate {
       console.log('true na isAdm');
       
       return true;
-
     }
 
     this.router.navigate(['./landing']);

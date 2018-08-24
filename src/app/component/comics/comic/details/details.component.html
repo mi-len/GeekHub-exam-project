@@ -5,7 +5,7 @@
         <div class="col-lg-5 col-xl-5 pb-3">
             <!--Featured image-->
             <div class="view overlay rounded z-depth-2">
-                <img src="{{comic.img_url}}" alt="cover image" class="img-fluid">
+                <img src="{{comic.img_url}}" alt="cover image" class="img-fluid img_cover">
                 <a>
                     <div class="mask waves-effect waves-light"></div>
                 </a>
@@ -37,10 +37,12 @@
             <p class="description_p">{{comic.description}}</p>
             <p *ngIf="price">price: {{comic.price}} coins</p>
             <p *ngIf="!price">price: free</p>
-            <p>contact: {{comic.phone}}</p>
+            <p>contact: {{comic.contact}}</p>
             <!-- <a class="btn btn-success btn-md mb-3 waves-effect waves-light">Read more</a> -->
             <button type="button" *ngIf="isOwner()" (click)="this.deleteCo()" class="btn btn-danger">delete</button>
             <a *ngIf="isOwner()" routerLink='/comics/edit/{{comic._id}}' class="btn btn-warning">Edit</a>
+            <button type="button" *ngIf="!isOwner()" [disabled]="favBtnIsDisable" (click)="addFav(comic)" class="btn btn-warning">{{this.favBtnMessage}}</button>
+
         </div>
       <!--Grid column-->
     </div>

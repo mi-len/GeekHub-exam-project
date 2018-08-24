@@ -3,11 +3,42 @@ import { Router } from '@angular/router'
 
 import { ComicsService } from '../../../../services/comics.service';
 import { ComicsModel } from '../../../../models/comics.model';
+import { style, animate, animation, animateChild, useAnimation, group, sequence, transition, state, trigger, query as q, stagger } from '@angular/animations';
+const query = (s,a,o={optional:true})=>q(s,a,o);
 
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
-  styleUrls: ['./add.component.css']
+  styleUrls: ['./add.component.css'],
+  animations: [
+    trigger('form', [
+      transition(':enter', [
+        style({ transform: 'translateY(-50px)', opacity: 0.1 }),
+        animate('0.5s ease-out', 
+          style({ transform: 'translateY(0)', opacity: 1 }))
+      ]),      
+    ]),
+    trigger('list', [
+      transition(':enter', [
+        // child animation selector + stagger
+        query('@items', 
+          stagger(100, animateChild())
+        )
+      ]),
+    ]),
+    trigger('items', [
+      transition(':enter', [
+        style({ transform: 'scale(0.5)', opacity: 0 }),
+        animate('1s cubic-bezier(.8,-0.6,0.2,1.5)', 
+          style({ transform: 'scale(1)', opacity: 1 }))
+      ]),
+      transition(':leave', [
+        style({ transform: 'scale(1)', opacity: 1, height: '*' }),
+        animate('1s cubic-bezier(.8,-0.6,0.2,1.5)', 
+          style({ transform: 'scale(0.5)', opacity: 0, height: '0px', margin: '0px' }))
+      ]),      
+    ]),
+  ]
 })
 export class AddComponent implements OnInit {
 
@@ -24,8 +55,7 @@ export class AddComponent implements OnInit {
       this.model = new ComicsModel('', this.publisher, '', '', '', '', [])
    }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   addComics() {
     this.addComics
@@ -41,23 +71,14 @@ export class AddComponent implements OnInit {
   }
 
   pushPage(page : string) {
-    console.log(page);
-    this.model.pages.push(page) //--- ?
-    // console.log(page);//---------------------------------
+    this.model.pages.push(page) 
     this.page = ''
-    
-    
   }
-
-// get_data(event) {
-//     console.log(event.target.dataset.id)
-//  }
 
   delThumbnail(event) {
     console.log(event.target.dataset.id);
     let id = event.target.dataset.id
     this.model.pages.splice(id, 1)
-    
   }
 
 }

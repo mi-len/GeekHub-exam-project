@@ -3,17 +3,24 @@ import { Router } from '@angular/router'
 
 import { RegisterModel } from '../../../models/register.model';
 import { AuthService } from '../../../services/auth.service';
-// import { ToastrService } from 'ngx-toastr';
+import { style, animate, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  animations: [
+    trigger('form', [
+      transition(':enter', [
+        style({ transform: 'translateY(-50px)', opacity: 0.1 }),
+        animate('0.5s ease-out', 
+          style({ transform: 'translateY(0)', opacity: 1 }))
+      ]),      
+    ])
+  ]
 })
 export class RegisterComponent implements OnInit {
   model : RegisterModel;
-  // loginFailed : boolean;
-  // errMessage : string;
 
   constructor(
     private authService : AuthService, 
@@ -26,17 +33,13 @@ export class RegisterComponent implements OnInit {
 
   register() {
     // delete this.model['confirmPassword']
+    let modelExcPass = Object.assign({}, this.model)
+    delete modelExcPass['confirmPassword']
 
-    this.authService.register(this.model)
+    this.authService.register(modelExcPass)
       .subscribe(
         data => {
           this.router.navigate(['/login'])
-        console.log(data)//-------------------------------------reg
-        // this.toastr.success('Register successful!', 'Success!')//--mahni i gore
-      }, 
-      err => {
-        // this.loginFailed = true;
-        // this.errMessage = err['error']['description']
       })
   }
 }

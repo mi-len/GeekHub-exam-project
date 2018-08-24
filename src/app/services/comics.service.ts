@@ -5,12 +5,9 @@ import { ComicsModel } from '../models/comics.model';
 
 const appKey = "kid_Bki9j4gcM";
 const appSecret = "5f14ca958c5441e59977487acab7dba5";
-// const getAllUrl = `https://baas.kinvey.com/${appKey}/adverts`;
-// const basicHeader = 'Basic ' + btoa(appKey + ':' + appSecret);
-// const kinveyHeader = 'Kinvey ' + sessionStorage.getItem('authtoken')
-const allUrl = `https://baas.kinvey.com/appdata/${appKey}/adverts/` 
-const detailsUrl = `https://baas.kinvey.com/appdata/${appKey}/adverts/`;
-const getUserItemsUrl = `https://baas.kinvey.com/appdata/${appKey}/adverts/`
+const allUrl = `https://baas.kinvey.com/appdata/${appKey}/comics/` 
+const detailsUrl = `https://baas.kinvey.com/appdata/${appKey}/comics/`;
+const getUserItemsUrl = `https://baas.kinvey.com/appdata/${appKey}/comics/`
 
 
 @Injectable()

@@ -28,3 +28,7 @@ page_thumb_container>li {
 .ul_pages {
     list-style-type: none;
 }
+
+.img_cover {
+    width: 100%;
+}

@@ -6,11 +6,13 @@ import { DetailsComponent } from "./comic/details/details.component";
 import { EditComponent } from "./comic/edit/edit.component";
 import { LandingComponent } from "../landing/landing.component";
 import { AddComponent } from "./comic/add/add.component";
+import { FavoritesComponent } from "./user-area/favorites/favorites.component";
 
 const comicsRoutes : Routes = [
     { path: 'details/:id', component: DetailsComponent},
     { path: 'edit/:id', component: EditComponent },
-    { path: 'add', component: AddComponent}
+    { path: 'add', component: AddComponent},
+    { path: 'fav', component: FavoritesComponent }
 ]
 
 @NgModule({

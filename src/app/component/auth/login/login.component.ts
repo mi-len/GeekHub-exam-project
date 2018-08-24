@@ -2,23 +2,28 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { LoginModel } from '../../../models/login.model'
 import { AuthService } from '../../../services/auth.service';
-import { ToastrService } from 'ngx-toastr';
-
+import { style, animate, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [
+    trigger('form', [
+      transition(':enter', [
+        style({ transform: 'translateY(-50px)', opacity: 0.1 }),
+        animate('0.5s ease-out', 
+          style({ transform: 'translateY(0)', opacity: 1 }))
+      ]),      
+    ])
+  ]
 })
 export class LoginComponent implements OnInit {
   model : LoginModel;
-  loginFailed : boolean;
-  errMessage : string;
 
   constructor(
     private authService : AuthService,
-    private router : Router,
-    private toastr : ToastrService) { 
+    private router : Router) { 
 
     this.model = new LoginModel('', '')
   }
@@ -31,12 +36,6 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           this.successfulLogin(data)
-          // console.log(data)//----------------------
-        }, 
-        err => {
-          console.log(err);//-------------------------
-          // this.loginFailed = true;
-          // this.errMessage = err['error']['description']
         }
       )
   }

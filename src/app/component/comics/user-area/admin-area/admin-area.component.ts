@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ComicsService } from '../../../../services/comics.service'
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-area',
@@ -11,7 +12,9 @@ export class AdminAreaComponent implements OnInit {
   pageSize : number = 12;
   currentPage : number = 1;
 
-  constructor( private comicsService : ComicsService ) { }
+  constructor( 
+    private comicsService : ComicsService,
+    private toastr : ToastrService ) { }
 
   ngOnInit() {
     this.comicsService.getAllComics().subscribe(data => this.comics = data)
@@ -19,6 +22,7 @@ export class AdminAreaComponent implements OnInit {
 
   deleteArticle(id) {
     this.comicsService.deleteComics(id).subscribe()
+    this.toastr.success('Delete successful!', 'Success!')
     this.ngOnInit()
   }
 

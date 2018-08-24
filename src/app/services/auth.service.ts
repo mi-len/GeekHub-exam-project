@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginModel } from '../models/login.model';
 import { RegisterModel } from '../models/register.model';
+import { UserModel } from '../models/user.model'
 
 const appKey = "kid_Bki9j4gcM";
 const appSecret = "5f14ca958c5441e59977487acab7dba5";
@@ -13,9 +14,14 @@ const getUserUrl = `https://baas.kinvey.com/user/${appKey}/`
 @Injectable()
 export class AuthService {
     private currentAuthtoken : string;
-    user_id = localStorage.getItem('user_id')
+    user_id = ''
+    userFav : UserModel
+    user : UserModel
 
-    constructor(private http : HttpClient) { }
+    constructor(private http : HttpClient) { 
+        this.userFav = new UserModel([]);
+        this.user_id = localStorage.getItem('user_id')
+    }
 
     login(model : LoginModel) {
         return this.http.post(loginUrl,
@@ -53,6 +59,19 @@ export class AuthService {
         }
     }
 
+    getFav() {
+        this.user_id = localStorage.getItem('user_id')
+        return this.http.get(getUserUrl + this.user_id)
+    }
+
+    pushFav(item, user) {
+            user.fav.push(item)
+            return this.http.put(getUserUrl + this.user_id, user)
+    }
+
+    remFav(items) {
+        return this.http.put(getUserUrl + this.user_id, items)
+    }
 
     // private createAuthHeaders(type : string) {
     //     if (type === 'Basic') {

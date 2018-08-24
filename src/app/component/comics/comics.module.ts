@@ -8,13 +8,13 @@ import { ComicsRoutingModule } from './comics-routing.module';
 import {NgxPaginationModule} from 'ngx-pagination'; 
 import { CommaExpr } from '../../../../node_modules/@angular/compiler';
 import { SearchResultComponent } from './search-result/search-result.component';
-import { Add02Component } from './comic/add02/add02.component';
+import { FavoritesComponent } from './user-area/favorites/favorites.component';
 
 @NgModule({
   declarations: [
     ...comicsComponents,
     SearchResultComponent,
-    Add02Component
+    FavoritesComponent
   ],
   imports: [
     CommonModule,
