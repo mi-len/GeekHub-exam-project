@@ -2,7 +2,7 @@
 
 Olx like app for buying and sharing hardcopy comics.
 
-deployed: http://ellefu.eu/geekhub/home
+deployed: http://ellefu.eu/geekhub/
 
 ## Main area
 
