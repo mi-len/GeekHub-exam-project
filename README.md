@@ -4,6 +4,8 @@ Olx like app for buying and sharing hardcopy comics.
 
 deployed: http://ellefu.eu/geekhub/
 
+test user: m pass: m
+
 ## Main area
 
 - Guests are not allowed into the system
